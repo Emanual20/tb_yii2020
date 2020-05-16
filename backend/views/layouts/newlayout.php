@@ -294,8 +294,8 @@ AppAsset::register($this);
 										<a class="dropdown-item" href="#">Account Setting</a>
 										<div class="dropdown-divider"></div>
 										<form action="/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Flogout" method="post">
-											<input type="hidden" name="_csrf-backend" value="6o4uUl5UEd253Wyk6vaX16gBtrDnjmksDjHubA6gtoqc73wBHAVYhN2RGfGHtKK1-nDy8oX0G3g3Qdg9V-75uA==">
-											<button type="submit" class="btn btn-link logout">Logout</button>
+											<input type="hidden" name="_csrf-backend" value="<?= Yii::$app->request->csrfToken ?>">
+											<button type="submit" class="btn btn-link logout"> logout</button>
 										</form>
 										<!-- <a class="dropdown-item" href="">Logout</a> -->
 									</li>
