@@ -18,7 +18,7 @@ AppAsset::register($this);
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Atlantis Lite - Bootstrap 4 Admin Dashboard</title>
+	<title>TB2020 - Admin Dashboard</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="../assets/img/icon.ico" type="image/x-icon"/>
 
@@ -475,15 +475,19 @@ AppAsset::register($this);
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#forms">
 								<i class="fas fa-pen-square"></i>
-								<p>Forms</p>
+								<p>表单提交</p>
 								<span class="caret"></span>
 							</a>
 							<div class="collapse" id="forms">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="forms/forms.html">
-											<span class="sub-item">Basic Form</span>
-										</a>
+										<form action="/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Fdemand" method="post">
+										<input type="hidden" name="_csrf-backend" value="<?= Yii::$app->request->csrfToken ?>">
+											<button type="submit" class="btn btn-link logout"> 填写</button>
+										</form>
+										<!-- <a href="/tb-demand-goods/index.php">
+											<span class="sub-item">提交需求表单</span>
+										</a> -->
 									</li>
 								</ul>
 							</div>
@@ -491,15 +495,16 @@ AppAsset::register($this);
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#tables">
 								<i class="fas fa-table"></i>
-								<p>Tables</p>
+								<p>数据信息</p>
 								<span class="caret"></span>
 							</a>
 							<div class="collapse" id="tables">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="tables/tables.html">
-											<span class="sub-item">Basic Table</span>
-										</a>
+										<form action="/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Fdemand" method="post">
+											<input type="hidden" name="_csrf-backend" value="<?= Yii::$app->request->csrfToken ?>">
+											<button type="submit" class="btn btn-link logout">需求数据表 </button>
+										</form>
 									</li>
 									<li>
 										<a href="tables/datatables.html">

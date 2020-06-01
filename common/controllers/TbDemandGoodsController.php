@@ -5,6 +5,7 @@ namespace common\controllers;
 use Yii;
 use common\models\TbDemandGoods;
 use common\models\TbDemandGoodsSearch;
+use Exception;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -24,6 +25,7 @@ class TbDemandGoodsController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    'add' => ['POST'],
                 ],
             ],
         ];
@@ -123,5 +125,21 @@ class TbDemandGoodsController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionAdd()
+    {
+        $addrow = new TbDemandGoods();
+        $request = \Yii::$app->request;
+        $addrow->tb_dgUser = $request->post('UserID', null);
+        $addrow->tb_dgType = $request->post('DType', null);
+        $addrow->tb_dgNum = $request->post('DNum', null);
+        $addrow->tb_dgPrice = $request->post('DPrice', null);
+        $addrow->tb_dgRemark = $request->post('DDetail', null);
+        echo 1111111;
+        if($addrow->validate()){
+            $addrow->save();
+        }
+        return $this->redirect(['newindex']);
     }
 }

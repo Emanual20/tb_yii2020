@@ -31,7 +31,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','demand'],
+                        'actions' => ['logout', 'index','demand', 'add'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -41,6 +41,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+                    'add' => ['post'],
                 ],
             ],
         ];
@@ -114,9 +115,25 @@ class SiteController extends Controller
         $searchModel = new TbDemandGoodsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('/tb-demand-goods/index', [
+        return $this->render('/tb-demand-goods/newindex', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+
+    public function actionAdd()
+    {
+        $addrow = new TbDemandGoods();
+        $request = \Yii::$app->request;
+        $addrow->tb_dgUser = $request->post('UserID', null);
+        $addrow->tb_dgType = $request->post('DType', null);
+        $addrow->tb_dgNum = $request->post('DNum', null);
+        $addrow->tb_dgPrice = $request->post('DPrice', null);
+        $addrow->tb_dgRemark = $request->post('DDetail', null);
+        $addrow->tb_dgAddress = $request->post('DAddress', null);
+        if($addrow->validate()){
+            $addrow->save();
+        }
+        return $this->redirect(['demand']);
     }
 }
