@@ -8,6 +8,7 @@ use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\TbDemandGoods;
 use common\models\TbDemandGoodsSearch;
+use yii\bootstrap\Alert;
 
 /**
  * Site controller
@@ -31,7 +32,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','demand', 'add'],
+                        'actions' => ['logout', 'index','demand', 'add', 'delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -42,6 +43,7 @@ class SiteController extends Controller
                 'actions' => [
                     'logout' => ['post'],
                     'add' => ['post'],
+                    'delete' => ['post'],
                 ],
             ],
         ];
@@ -133,6 +135,21 @@ class SiteController extends Controller
         $addrow->tb_dgAddress = $request->post('DAddress', null);
         if($addrow->validate()){
             $addrow->save();
+        }else{
+            echo "<script>alert('failed add')</script>";
+        }
+        return $this->redirect(['demand']);
+    }
+
+    public function actionDelete()
+    {
+        $id = \Yii::$app->request->post('pid', null);
+        $delrow = TbDemandGoods::findOne($id);
+        if($delrow->validate()){
+            $delrow->delete();
+            echo "<script>alert('del success')</script>";
+        }else{
+            echo "<script>alert('del fail')</script>";
         }
         return $this->redirect(['demand']);
     }

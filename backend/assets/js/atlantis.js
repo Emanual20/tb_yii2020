@@ -7,6 +7,7 @@ $(".nav-search .input-group > input").focus(function(e){
 });
 
 $(function () {
+	$.noConflict();
 	$('[data-toggle="tooltip"]').tooltip();
 	$('[data-toggle="popover"]').popover();
 	layoutsColors();

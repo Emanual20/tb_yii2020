@@ -195,7 +195,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <?php 
                                                     $array1 = $searchModel::find()->all();
                                                 ?>
-                                                <?php common\tool\tool::echoAllRecordsWithEdit($array1);?>
+                                                <?php common\tool\tool::echoAllRecordsWithEdit($array1, Yii::$app->request);?>
 												
 											</tbody>
 										</table>

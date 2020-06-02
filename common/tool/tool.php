@@ -24,7 +24,7 @@
             EOF;
             return $ret;
         }
-        public static function getAllRecordsWithEdit($uid, $did, $dType, $dNum, $dPrice, $dRemark){
+        public static function getAllRecordsWithEdit($request, $uid, $did, $dType, $dNum, $dPrice, $dRemark){
             $ret =<<<EOF
             <tr>
                 <td>$uid</td>
@@ -38,9 +38,12 @@
                         <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
                             <i class="fa fa-edit"></i>
                         </button>
-                        <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
-                            <i class="fa fa-times"></i>
-                        </button>
+                        <form action="/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Fdelete" method="post">
+                            <input type="hidden" name="_csrf-backend" value="<?=$request->csrfToken ?>">
+                            <button name="pid" value=$did type="submit" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </form>
                     </div>
                 </td>
             </tr>
@@ -63,7 +66,7 @@
             }
         }
 
-        public static function echoAllRecordsWithEdit($array){
+        public static function echoAllRecordsWithEdit($array, $request){
             $totalnum = count($array);
             for ($i=0; $i < $totalnum; $i++) { 
                 $thearray = $array[$i];
@@ -73,7 +76,7 @@
                 $dPrice = ArrayHelper::getValue($thearray,'tb_dgPrice', $default = true);
                 $dNum = ArrayHelper::getValue($thearray,'tb_dgNum', $default = true);
                 $dRemark= ArrayHelper::getValue($thearray,'tb_dgRemark', $default = true);
-                echo tool::getAllRecordsWithEdit($uid, $did, $dType, $dNum, $dPrice, $dRemark);
+                echo tool::getAllRecordsWithEdit($request, $uid, $did, $dType, $dNum, $dPrice, $dRemark);
             }
         }
     }

@@ -136,7 +136,6 @@ class TbDemandGoodsController extends Controller
         $addrow->tb_dgNum = $request->post('DNum', null);
         $addrow->tb_dgPrice = $request->post('DPrice', null);
         $addrow->tb_dgRemark = $request->post('DDetail', null);
-        echo 1111111;
         if($addrow->validate()){
             $addrow->save();
         }
