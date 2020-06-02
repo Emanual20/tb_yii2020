@@ -1,0 +1,185 @@
+<?php
+
+use yii\db\Query;
+use yii\helpers\Html;
+use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
+use yii\widgets\Pjax;
+
+use \common\tool;
+/* @var $this yii\web\View */
+/* @var $searchModel common\models\TbDemandGoodsSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = 'Tb Demand Goods';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						<h4 class="page-title">表单提交</h4>
+						<ul class="breadcrumbs">
+							<li class="nav-home">
+								<a href="#">
+									<i class="flaticon-home"></i>
+								</a>
+							</li>
+							<li class="separator">
+								<i class="flaticon-right-arrow"></i>
+							</li>
+							<li class="nav-item">
+								<a href="#">订单</a>
+							</li>
+							<li class="separator">
+								<i class="flaticon-right-arrow"></i>
+							</li>
+							<li class="nav-item">
+								<a href="#">需求订单</a>
+							</li>
+						</ul>
+                    </div>
+                
+                <form action = "/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Fadd" method="post" name="addform">
+                    <input type="hidden" name="_csrf-backend" value="<?= Yii::$app->request->csrfToken ?>">
+					<div class="row">
+                        <script language="javascript">
+                            function fsubmit(obj){
+                                obj.submit();
+                            }
+                        </script>
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">填写物资需求</div>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-md-9 col-lg-6">
+											<div class="form-check">
+												<label>自动成交</label><br/>
+												<label class="form-radio-label">
+													<input class="form-radio-input" type="radio" name="optionsRadios" value=""  checked="">
+													<span class="form-radio-sign">自动达成订单</span>
+												</label>
+												<label class="form-radio-label ml-3">
+													<input class="form-radio-input" type="radio" name="optionsRadios" value="">
+													<span class="form-radio-sign">手动同意订单</span>
+												</label>
+											</div>
+											<div class="form-group">
+												<label for="exampleFormControlSelect1">选择物资类型</label>
+												<select name="DType" class="form-control" id="DTypeSelect">
+                                                    <option></option>
+                                                    <option>食品</option>
+													<option>药品（处方药）</option>
+													<option>药品（非处方药）</option>
+													<option>医疗用品（耗材）</option>
+                                                    <option>个人防护用品</option>
+                                                    <option>其他</option>
+												</select>
+											</div>
+											<div class="form-group">
+												<label for="exampleFormControlFile1">照片描述</label>
+												<input type="file" class="form-control-file" id="exampleFormControlFile1">
+											</div>
+											<div class="form-check">
+												<label class="form-check-label">
+													<input class="form-check-input" type="checkbox" value="">
+													<span class="form-check-sign">同意并知悉通知书</span>
+												</label>
+                                            </div>
+											<div class="form-group">
+												<label for="basic-url">提交人</label>
+												<div class="input-group mb-3">
+                                                    <div class="input-icon">
+													    <span class="input-icon-addon">
+														    <i class="fa fa-user"></i>
+													    </span>
+													    <input name = "UserID" type="text" class="form-control" placeholder="Username">
+												    </div>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="input-group mb-3">
+													<div class="input-group-prepend">
+														<span class="input-group-text">价格（单价）￥</span>
+													</div>
+													<input name = "DPrice" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+													<div class="input-group-append">
+														<span class="input-group-text">.00</span>
+													</div>
+                                                </div>
+                                                <div class="input-group mb-3">
+													<div class="input-group-prepend">
+														<span class="input-group-text">数量</span>
+													</div>
+													<input name = "DNum" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+													<div class="input-group-append">
+														<span class="input-group-text">个</span>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="form-label">图像缩略图</label>
+												<div class="row">
+													<div class="col-9 col-sm-6">
+														<label class="imagecheck mb-6">
+															<input name="imagecheck" type="checkbox" value="1" class="imagecheck-input">
+															<figure class="imagecheck-figure">
+																<img src="../../assets/img/examples/product1.jpg" alt="title" class="imagecheck-image">
+															</figure>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-9 col-lg-6">
+                                            <label class="mb-3"><b>Form Group Default</b></label>
+                                            <div class="form-group">
+												<label for="comment">详细描述</label>
+												<textarea name = "DDetail" class="form-control" id="detial" rows="5">
+
+												</textarea>
+                                            </div>
+                                            <div class="form-group">
+												<label for="address">地点信息</label>
+												<textarea name = "DAddress" class="form-control" id="address" rows="3">
+
+												</textarea>
+											</div>
+											
+											<div class="form-group form-group-default">
+												<label>Input</label>
+												<input id="Name" type="text" class="form-control" placeholder="Fill Name">
+											</div>
+											<div class="form-group form-group-default">
+												<label>Select</label>
+												<select class="form-control" id="formGroupDefaultSelect">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+												</select>
+											</div>
+
+											
+											
+
+											<div class="form-group">
+												<label for="smallInput">特殊需求（人工审核）</label>
+												<input type="text" class="form-control form-control-sm" id="smallInput" placeholder="Small Input">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card-action">
+                                    <input type="button" id="addRowButton" value="Submit" class="btn btn-success" onclick="javascript:fsubmit(document.addform);"></input>
+									<button class="btn btn-danger">Cancel</button>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </form>
+				</div>
+            </div>

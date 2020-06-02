@@ -32,7 +32,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','demand', 'add', 'delete'],
+                        'actions' => ['logout', 'index','demand', 'add', 'delete', 'form'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -120,6 +120,12 @@ class SiteController extends Controller
         return $this->render('/tb-demand-goods/newindex', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionForm()
+    {
+        return $this->render('/tb-demand-goods/newform', [
         ]);
     }
 

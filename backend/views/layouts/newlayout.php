@@ -479,7 +479,7 @@ AppAsset::register($this);
 							<div class="collapse" id="forms">
 								<ul class="nav nav-collapse">
 									<li>
-										<form action="/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Fdemand" method="post">
+										<form action="/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Fform" method="post">
 										<input type="hidden" name="_csrf-backend" value="<?= Yii::$app->request->csrfToken ?>">
 											<button type="submit" class="btn btn-link logout"> 填写</button>
 										</form>
