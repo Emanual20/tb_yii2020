@@ -24,7 +24,8 @@ class m130524_201442_init extends Migration
             'updated_at' => $this->integer()->notNull(),
             'userphone' => $this->integer()->notNull(),
             'userRealName' => $this->string(30) ->notNull(),
-            'isAdmin' => $this->boolean()->defaultValue(false)->notNull()
+            'uAuthority' => $this->integer()->defaultValue(3)->notNull()
+			// 管理员权限是1，用户权限是2，游客权限是3
         ], $tableOptions);
         $pw1 = Yii::$app->security->generatePasswordHash('123456');
         $aut1 = Yii::$app->security->generateRandomString();

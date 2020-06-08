@@ -8,6 +8,7 @@ use yii\db\Schema;
 /*
 *
 yoko2001
+sakura
 *
 */
 class m200516_115416_tb_demand_goods extends Migration
@@ -19,8 +20,8 @@ class m200516_115416_tb_demand_goods extends Migration
     {
         $sql = "CREATE TABLE `tb_demand_goods` (
             `tb_dgId` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '需求编号',
-            `tb_dgUser` mediumint(9) NOT NULL COMMENT '需求发布者',
-            `tb_dgType` varchar(40) NOT NULL COMMENT '物资类型',
+            `tb_dgUser` mediumint(9) NOT NULL COMMENT '需求发布者' REFERENCES user(id),
+            `tb_dgType` int(4) NOT NULL COMMENT '物资类型' REFERENCES tb_goods_type(tb_gtId),
             `tb_dgNum` mediumint(8) unsigned DEFAULT NULL COMMENT '物资数量',
             `tb_dgPrice` int(10) unsigned DEFAULT NULL COMMENT '物资价格',
             `tb_dgRemark` text DEFAULT NULL COMMENT '物资信息备注',
@@ -28,8 +29,9 @@ class m200516_115416_tb_demand_goods extends Migration
             PRIMARY KEY (`tb_dgId`)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='物资需求表';";
         $this->db->createCommand($sql)->execute();
-        $sql = "INSERT INTO tb_demand_goods VALUES (DEFAULT, 1811349, '食品', 5, 5, '统一方便面五桶（滑稽', '台湾省台北市中正区重庆南路一段122号'),
-                                                   (DEFAULT, 1811349, '药品', 5, 105, '达菲', '台湾省台北市中正区重庆南路一段122号');";
+        $sql = "INSERT INTO tb_demand_goods VALUES (DEFAULT, 1811349, 1, 5, 5, '统一方便面五桶（滑稽', '台湾省台北市中正区重庆南路一段122号'),
+                                                   (DEFAULT, 1811349, 2, 5, 105, '达菲', '台湾省台北市中正区重庆南路一段122号'),
+												   (DEFAULT, 1811425, 6, 1, 100, '漱口水', '天津市南开大学津南校区教三宿舍');";
         $this->db->createCommand($sql)->execute();
         // $this->createTable('tb_demand_goods', 7, [
         //     'tb_dgId' => ' int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT \'需求编号\'',
