@@ -117,7 +117,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 </script>
 												<div class="modal-body">
 													<p class="small">管理员权限：直接插入数据</p>
-													<form action = "/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Fadd" method="post" name="addform">
+													<form action = "/tb_yii2020/tb_yii2020/backend/web/index.php?r=tb-demand-goods%2Fadd" method="post" name="addform">
                                                         <input type="hidden" name="_csrf-backend" value="<?= Yii::$app->request->csrfToken ?>">
                                                         <div class="row">
 															<div class="col-sm-6">

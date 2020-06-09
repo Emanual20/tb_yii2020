@@ -38,7 +38,7 @@
                         <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
                             <i class="fa fa-edit"></i>
                         </button>
-                        <form action="/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Fdelete" method="post">
+                        <form action="/tb_yii2020/tb_yii2020/backend/web/index.php?r=tb-demand-goods%2Fdelete" method="post">
                             <input type="hidden" name="_csrf-backend" value="<?=$request->csrfToken ?>">
                             <button name="pid" value=$did type="submit" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
                                 <i class="fa fa-times"></i>

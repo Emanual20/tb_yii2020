@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						</ul>
                     </div>
                 
-                <form action = "/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Fadd" method="post" name="addform">
+                <form action = "/tb_yii2020/tb_yii2020/backend/web/index.php?r=tb-demand-goods%2Fadd" method="post" name="addform">
                     <input type="hidden" name="_csrf-backend" value="<?= Yii::$app->request->csrfToken ?>">
 					<div class="row">
                         <script language="javascript">

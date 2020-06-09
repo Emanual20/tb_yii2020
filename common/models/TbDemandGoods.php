@@ -32,9 +32,8 @@ class TbDemandGoods extends \yii\db\ActiveRecord
     {
         return [
             [['tb_dgUser', 'tb_dgType', 'tb_dgAddress'], 'required'],
-            [['tb_dgUser', 'tb_dgNum', 'tb_dgPrice'], 'integer'],
+            [['tb_dgUser', 'tb_dgType', 'tb_dgNum', 'tb_dgPrice'], 'integer'],
             [['tb_dgRemark'], 'string'],
-            [['tb_dgType'], 'string', 'max' => 40],
             [['tb_dgAddress'], 'string', 'max' => 127],
         ];
     }

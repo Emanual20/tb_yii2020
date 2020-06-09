@@ -1,6 +1,6 @@
 <?php
 
-namespace common\controllers;
+namespace  backend\controllers;
 
 use Yii;
 use common\models\TbDemandGoods;
@@ -9,7 +9,7 @@ use Exception;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\filters\AccessControl;
 /**
  * TbDemandGoodsController implements the CRUD actions for TbDemandGoods model.
  */
@@ -20,7 +20,18 @@ class TbDemandGoodsController extends Controller
      */
     public function behaviors()
     {
+
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => [ 'index', 'add', 'delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -40,7 +51,7 @@ class TbDemandGoodsController extends Controller
         $searchModel = new TbDemandGoodsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('view', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);

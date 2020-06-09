@@ -129,23 +129,23 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionAdd()
-    {
-        $addrow = new TbDemandGoods();
-        $request = \Yii::$app->request;
-        $addrow->tb_dgUser = $request->post('UserID', null);
-        $addrow->tb_dgType = $request->post('DType', null);
-        $addrow->tb_dgNum = $request->post('DNum', null);
-        $addrow->tb_dgPrice = $request->post('DPrice', null);
-        $addrow->tb_dgRemark = $request->post('DDetail', null);
-        $addrow->tb_dgAddress = $request->post('DAddress', null);
-        if($addrow->validate()){
-            $addrow->save();
-        }else{
-            echo "<script>alert('failed add')</script>";
-        }
-        return $this->redirect(['demand']);
-    }
+    // public function actionAdd()
+    // {
+    //     $addrow = new TbDemandGoods();
+    //     $request = \Yii::$app->request;
+    //     $addrow->tb_dgUser = $request->post('UserID', null);
+    //     $addrow->tb_dgType = $request->post('DType', null);
+    //     $addrow->tb_dgNum = $request->post('DNum', null);
+    //     $addrow->tb_dgPrice = $request->post('DPrice', null);
+    //     $addrow->tb_dgRemark = $request->post('DDetail', null);
+    //     $addrow->tb_dgAddress = $request->post('DAddress', null);
+    //     if($addrow->validate()){
+    //         $addrow->save();
+    //     }else{
+    //         echo "<script>alert('failed add')</script>";
+    //     }
+    //     return $this->redirect(['demand']);
+    // }
 
     public function actionDelete()
     {
