@@ -9,7 +9,8 @@ use Exception;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\helpers\ArrayHelper;
+use common\models\TbGoodsType;
 /**
  * TbDemandGoodsController implements the CRUD actions for TbDemandGoods model.
  */
@@ -129,15 +130,32 @@ class TbDemandGoodsController extends Controller
 
     public function actionAdd()
     {
+        echo "<script>succeed('failed add')</script>";
         $addrow = new TbDemandGoods();
         $request = \Yii::$app->request;
-        $addrow->tb_dgUser = $request->post('UserID', null);
+        $uid = $request->post('UserID', null);
+        if ($uid == "" or $uid == null){
+            $addrow->tb_dgUser = Yii::$app->user->identity->id;
+        }else{
+            $addrow->tb_dgUser = $request->post('UserID', null);
+        }
         $addrow->tb_dgType = $request->post('DType', null);
+        if (!is_int($addrow->tb_dgType)){
+            $arr = TbGoodsType::find()->all();
+            $cnt = count($arr);
+            for($i = 0; $i < $cnt; $i++){
+                if (ArrayHelper::getValue($arr[$i],'tb_gtId', $default = true) ==$addrow->tb_dgType ){
+                    $addrow->tb_dgType = ArrayHelper::getValue($arr[$i],'tb_gtName', $default = true);
+                    break;
+                }
+            }
+        }
         $addrow->tb_dgNum = $request->post('DNum', null);
         $addrow->tb_dgPrice = $request->post('DPrice', null);
         $addrow->tb_dgRemark = $request->post('DDetail', null);
         $addrow->tb_dgAddress = $request->post('DAddress', null);
         if($addrow->validate()){
+            echo "<script>succeed('failed add')</script>";
             $addrow->save();
         }else{
             echo "<script>alert('failed add')</script>";

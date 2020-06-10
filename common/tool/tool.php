@@ -3,7 +3,8 @@
     use Yii;
     use common\models\TbDemandGoods;
     use common\models\TbDemandGoodsSearch;
-    use yii\web\Controller;
+use common\models\TbGoodsType;
+use yii\web\Controller;
     use yii\web\NotFoundHttpException;
     use yii\helpers\ArrayHelper;
     use yii\filters\VerbFilter;
@@ -58,7 +59,9 @@
                 $thearray = $array[$i];
                 $uid = ArrayHelper::getValue($thearray,'tb_dgUser', $default = true);
                 $did = ArrayHelper::getValue($thearray,'tb_dgId', $default = true);
-                $dType = ArrayHelper::getValue($thearray,'tb_dgType', $default = true);
+                $dTypeid = ArrayHelper::getValue($thearray,'tb_dgType', $default = true);
+                $dTypeArr = TbGoodsType::findOne($dTypeid);
+                $dType = ArrayHelper::getValue($dTypeArr,'tb_gtName', $default = true);
                 $dPrice = ArrayHelper::getValue($thearray,'tb_dgPrice', $default = true);
                 $dNum = ArrayHelper::getValue($thearray,'tb_dgNum', $default = true);
                 $dRemark= ArrayHelper::getValue($thearray,'tb_dgRemark', $default = true);
@@ -72,12 +75,25 @@
                 $thearray = $array[$i];
                 $uid = ArrayHelper::getValue($thearray,'tb_dgUser', $default = true);
                 $did = ArrayHelper::getValue($thearray,'tb_dgId', $default = true);
-                $dType = ArrayHelper::getValue($thearray,'tb_dgType', $default = true);
+                $dTypeid = ArrayHelper::getValue($thearray,'tb_dgType', $default = true);
+                $dTypeArr = TbGoodsType::findOne($dTypeid);
+                $dType = ArrayHelper::getValue($dTypeArr,'tb_gtName', $default = true);
                 $dPrice = ArrayHelper::getValue($thearray,'tb_dgPrice', $default = true);
                 $dNum = ArrayHelper::getValue($thearray,'tb_dgNum', $default = true);
                 $dRemark= ArrayHelper::getValue($thearray,'tb_dgRemark', $default = true);
                 echo tool::getAllRecordsWithEdit($request, $uid, $did, $dType, $dNum, $dPrice, $dRemark);
             }
         }
+        public static function echoAllDmTypes(){
+            $dTypeArr = TbGoodsType::find()->all();
+            $total = count($dTypeArr);
+            $dTypes = ArrayHelper::getColumn($dTypeArr,'tb_gtName', $keepKeys = false);
+            $dTypeids = ArrayHelper::getColumn($dTypeArr,'tb_gtId', $keepKeys = false);
+            for ($i=0; $i < $total; $i++){
+                $type1 = $dTypes[$i];
+                echo("<option value = $dTypeids[$i]>$type1</option>");
+            } 
+        }
     }
+
 ?>

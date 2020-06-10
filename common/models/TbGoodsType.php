@@ -52,4 +52,6 @@ class TbGoodsType extends \yii\db\ActiveRecord
     {
         return new TbGoodsTypeQuery(get_called_class());
     }
+
+    
 }

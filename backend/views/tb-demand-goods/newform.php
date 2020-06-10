@@ -69,13 +69,8 @@ $this->params['breadcrumbs'][] = $this->title;
 											<div class="form-group">
 												<label for="exampleFormControlSelect1">选择物资类型</label>
 												<select name="DType" class="form-control" id="DTypeSelect">
-                                                    <option></option>
-                                                    <option>食品</option>
-													<option>药品（处方药）</option>
-													<option>药品（非处方药）</option>
-													<option>医疗用品（耗材）</option>
-                                                    <option>个人防护用品</option>
-                                                    <option>其他</option>
+													<option></option>
+													<?php \common\tool\tool::echoAllDmTypes()?>
 												</select>
 											</div>
 											<div class="form-group">
@@ -95,7 +90,7 @@ $this->params['breadcrumbs'][] = $this->title;
 													    <span class="input-icon-addon">
 														    <i class="fa fa-user"></i>
 													    </span>
-													    <input name = "UserID" type="text" class="form-control" placeholder="Username">
+													    <input name = "UserID" type="text" class="form-control" placeholder="<?= Yii::$app->user->identity->username?>">
 												    </div>
 												</div>
 											</div>

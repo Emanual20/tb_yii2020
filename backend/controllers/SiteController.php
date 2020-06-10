@@ -8,6 +8,8 @@ use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\TbDemandGoods;
 use common\models\TbDemandGoodsSearch;
+use backend\models\TbBulletinboard;
+use backend\models\TbBulletinboardSearch;
 use yii\bootstrap\Alert;
 
 /**
@@ -32,7 +34,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','demand', 'add', 'delete', 'form'],
+                        'actions' => ['logout', 'index', 'demand', 'add', 'delete', 'form', 'show', 'newb'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -44,6 +46,8 @@ class SiteController extends Controller
                     'logout' => ['post'],
                     'add' => ['post'],
                     'delete' => ['post'],
+                    'show' => ['post','get'],
+					'newb' => ['post'],
                 ],
             ],
         ];
@@ -129,34 +133,18 @@ class SiteController extends Controller
         ]);
     }
 
-    // public function actionAdd()
-    // {
-    //     $addrow = new TbDemandGoods();
-    //     $request = \Yii::$app->request;
-    //     $addrow->tb_dgUser = $request->post('UserID', null);
-    //     $addrow->tb_dgType = $request->post('DType', null);
-    //     $addrow->tb_dgNum = $request->post('DNum', null);
-    //     $addrow->tb_dgPrice = $request->post('DPrice', null);
-    //     $addrow->tb_dgRemark = $request->post('DDetail', null);
-    //     $addrow->tb_dgAddress = $request->post('DAddress', null);
-    //     if($addrow->validate()){
-    //         $addrow->save();
-    //     }else{
-    //         echo "<script>alert('failed add')</script>";
-    //     }
-    //     return $this->redirect(['demand']);
-    // }
+    public function actionShow(){
+		$searchModel=new TbBulletinboardSearch();
+		$dataProvider=$searchModel->search(Yii::$app->request->queryParams);
 
-    public function actionDelete()
-    {
-        $id = \Yii::$app->request->post('pid', null);
-        $delrow = TbDemandGoods::findOne($id);
-        if($delrow->validate()){
-            $delrow->delete();
-            echo "<script>alert('del success')</script>";
-        }else{
-            echo "<script>alert('del fail')</script>";
-        }
-        return $this->redirect(['demand']);
-    }
+		return $this->render('/TbBulletinboard/newindex', [
+			'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+		]);
+	}
+
+	public function actionNewb(){
+		return $this->render('/TbBulletinboard/newform', [
+        ]);
+	}
 }

@@ -528,6 +528,29 @@ AppAsset::register($this);
 								</ul>
 							</div>
 						</li>
+						<?php/*这部分是要添加到原有newlayout.php中的部分，不要替换*/?>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#bulletinboard">
+								<i class="fas fa-desktop"></i>
+								<p><b>公告详情</b></p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="bulletinboard">
+								<ul class="nav nav-collapse">
+									<li>
+										<form action="/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Fshow" method="post">
+											<input type="hidden" name="_csrf-backend" value="<?= Yii::$app->request->csrfToken ?>">
+											<button type="submit" class="btn btn-link logout">公告板 </button>
+										</form>
+										<form action="/tb_yii2020/tb_yii2020/backend/web/index.php?r=site%2Fnewb" method="post">
+											<input type="hidden" name="_csrf-backend" value="<?= Yii::$app->request->csrfToken ?>">
+											<button type="submit" class="btn btn-link logout">发布公告 </button>
+										</form>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<!--到此为止-->
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#charts">
 								<i class="far fa-chart-bar"></i>
