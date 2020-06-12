@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Team:No_Name, NKU
+ * Coding by Changkeyuan 1811338, 20200610
+ * This is the main controller
+ */
+
 namespace frontend\controllers;
 
 use frontend\models\ResendVerificationEmailForm;
@@ -20,6 +27,7 @@ use frontend\models\ContactForm;
  */
 class SiteController extends Controller
 {
+    public $layout = "main_layout";
     /**
      * {@inheritdoc}
      */
@@ -84,6 +92,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = "login_layout";
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -256,5 +265,68 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+
+    /**
+     * display teamwork
+     */
+    public function actionMainteamwork(){
+        return $this->render('mainteamwork');
+    }
+    /**
+     * display selfwork1
+     */
+    public function actionSelfwork(){
+        $singlework = [
+            ['name' => 'Web前端初探', 'namecontent' => ''],
+            ['name' => 'Web前端设计', 'namecontent' => ''],
+            ['name' => '开源建站工具初试文档', 'namecontent' => ''],
+        ];
+        return $this->render('Selfwork', ['singlework' => $singlework]);
+    }
+     
+    /**
+     * display selfwork2
+     */
+    public function actionSelfwork2(){
+        $singlework = [
+            ['name' => 'Web前端初探', 'namecontent' => ''],
+            ['name' => 'Web前端设计', 'namecontent' => ''],
+            ['name' => '开源建站工具初试文档', 'namecontent' => ''],
+        ];
+        return $this->render('Selfwork2', ['singlework' => $singlework]);
+    }
+    /**
+     * display selfwork3
+     */
+    public function actionSelfwork3(){
+        $singlework = [
+            ['name' => 'Web前端初探', 'namecontent' => ''],
+            ['name' => 'Web前端设计', 'namecontent' => ''],
+            ['name' => '开源建站工具初试文档', 'namecontent' => ''],
+        ];
+        return $this->render('Selfwork3', ['singlework' => $singlework]);
+    }
+    /**
+     * display selfwork4
+     */
+    public function actionSelfwork4(){
+        $singlework = [
+            ['name' => 'Web前端初探', 'namecontent' => ''],
+            ['name' => 'Web前端设计', 'namecontent' => ''],
+            ['name' => '开源建站工具初试文档', 'namecontent' => ''],
+        ];
+        return $this->render('Selfwork4', ['singlework' => $singlework]);
+    }
+    /**
+     * display selfwork5
+     */
+    public function actionSelfwork5(){
+        $singlework = [
+            ['name' => 'Web前端初探', 'namecontent' => ''],
+            ['name' => 'Web前端设计', 'namecontent' => ''],
+            ['name' => '开源建站工具初试文档', 'namecontent' => ''],
+        ];
+        return $this->render('Selfwork5', ['singlework' => $singlework]);
     }
 }

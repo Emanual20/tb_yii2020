@@ -36,6 +36,12 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'clientScript'=>array(
+            'scriptMap'=>array(
+                'jquery.js'=>false,
+                'jquery.min.js'=>false,
+            )        
+        ),
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

@@ -10,6 +10,10 @@ use common\models\TbDemandGoods;
 use common\models\TbDemandGoodsSearch;
 use backend\models\TbBulletinboard;
 use backend\models\TbBulletinboardSearch;
+use backend\models\TbOrders;
+use backend\models\TbOrdersSearch;
+use backend\models\TbWealGoods;
+use backend\models\TbWealGoodsSearch;
 use yii\bootstrap\Alert;
 
 /**
@@ -34,7 +38,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'demand', 'add', 'delete', 'form', 'show', 'newb'],
+                        'actions' => ['logout', 'index', 'demand', 'add', 'delete', 'form', 'show', 'newb', 'catch', 'move', 'weal', 'gorm'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -48,6 +52,9 @@ class SiteController extends Controller
                     'delete' => ['post'],
                     'show' => ['post','get'],
 					'newb' => ['post'],
+					'catch' => ['post','get'],
+					'move' => ['post'],
+					'weal' => ['post','get'],
                 ],
             ],
         ];
@@ -147,4 +154,41 @@ class SiteController extends Controller
 		return $this->render('/TbBulletinboard/newform', [
         ]);
 	}
+
+	public function actionCatch(){
+		$searchModel=new TbOrdersSearch();
+		$dataProvider=$searchModel->search(Yii::$app->request->queryParams);
+
+		return $this->render('/tb-orders/newindex', [
+			'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+		]);
+	}
+
+	public function actionMove(){
+		$searchModel=new TbOrdersSearch();
+		$dataProvider=$searchModel->search(Yii::$app->request->queryParams);
+
+		return $this->render('/tb-orders/order_process', [
+			'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+		]);
+	}
+
+	public function actionWeal()
+    {
+        $searchModel = new TbWealGoodsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('/tb-weal-goods/newindex', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+	public function actionGorm()
+    {
+        return $this->render('/tb-weal-goods/newform', [
+        ]);
+    }
 }
