@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model frontend\models\Dxyarea */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Dxyareas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '疫情数据展示', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>

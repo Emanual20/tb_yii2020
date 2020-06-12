@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "{{%contactme}}".
  *
- * @property string $id
+ * @property int $id
  * @property string $name
  * @property string $request_time
  * @property string $content
@@ -28,11 +28,9 @@ class Contactme extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name', 'request_time', 'content'], 'required'],
-            [['id'], 'string', 'max' => 20],
+            [['name', 'request_time', 'content'], 'required'],
             [['name', 'content'], 'string', 'max' => 255],
             [['request_time'], 'string', 'max' => 30],
-            [['id'], 'unique'],
         ];
     }
 

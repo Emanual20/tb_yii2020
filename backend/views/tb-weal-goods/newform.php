@@ -90,7 +90,7 @@ $this->params['breadcrumbs'][] = $this->title;
 													    <span class="input-icon-addon">
 														    <i class="fa fa-user"></i>
 													    </span>
-													    <input name = "UserID" type="text" class="form-control" placeholder="<?= Yii::$app->user->identity->username?>">
+													    <input name = "UserID" type="text" class="form-control" disabled="disabled" placeholder="<?= Yii::$app->user->identity->username?>">
 												    </div>
 												</div>
 											</div>

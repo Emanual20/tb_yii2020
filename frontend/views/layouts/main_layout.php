@@ -302,41 +302,24 @@ AppAsset::register($this);
          
           
          <li>
-             <a class="accordion-toggle" href="index.php?r=dxyarea">
-                 <span class="glyphicon glyphicon-fire"></span>
-                 <span class="sidebar-title">疫情数据展示</span>
-                 <span class="caret"></span>
-             </a>
-             <ul class="nav sub-nav">
              <li>
                <a href="index.php?r=dxyarea">
                  <span class="glyphicon glyphicon-fire"></span> 疫情数据展示</a>
              </li>
-
-           </ul>
          </li>
        <li>
-         <a class="accordion-toggle" href="index.php?r=contactme/create">
-           <span class="glyphicon glyphicon-fire"></span>
-           <span class="sidebar-title">用户反馈</span>
-           <span class="caret"></span>
-         </a>
-         <ul class="nav sub-nav">
              <li>
-               <a href="index.php?r=contactme/create">
+               <a class="accordion-toggle" href="index.php?r=contactme/create">
                  <span class="glyphicon glyphicon-fire"></span> 用户反馈</a>
              </li>
-
-           </ul>
        </li>
    
          
          <li class="sidebar-label pt15">作业展示</li>
          <li>
-           <a class="accordion-toggle" >
+           <a class="accordion-toggle" href="<?php echo Url::to(['site/mainteamwork']) ?>">
              <span class="glyphicon glyphicon-book"></span>
              <span class="sidebar-title">团队作业</span>
-             <span class="caret"></span>
            </a>
            <ul class="nav sub-nav">
              <li>
@@ -350,9 +333,7 @@ AppAsset::register($this);
            <a class="accordion-toggle" href="">
              <span class="glyphicon glyphicon-check"></span>
              <span class="sidebar-title">个人作业</span>
-             <span class="caret"></span>
            </a>
-           <ul class="nav sub-nav">
              <li>
                <a href="<?php echo Url::to(['site/selfwork']) ?>">
                  <span class="glyphicon glyphicon-saved"></span> 鲁含章</a>
@@ -373,7 +354,16 @@ AppAsset::register($this);
                <a href="<?php echo Url::to(['site/selfwork5']) ?>">
                  <span class="glyphicon glyphicon-saved"></span> 常珂源</a>
              </li>
-           </ul>
+         </li>
+
+
+         <li class="sidebar-label pt15">疫情信息</li>
+         <li>
+           </a>
+             <li>
+               <a href="<?php echo Url::to(['site/map']) ?>">
+                 <span class="glyphicon glyphicon-map-marker"></span> 累计确诊疫情分布图</a>
+             </li>
          </li>
 
      

@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel frontend\models\DxyareaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Dxyareas';
+$this->title = '疫情数据展示';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dxyarea-index">

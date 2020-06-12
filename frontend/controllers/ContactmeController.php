@@ -17,7 +17,7 @@ class ContactmeController extends Controller
     /**
      * {@inheritdoc}
      */
-    public  $layout = "main_layout";
+    public $layout = "main_layout";
     public function behaviors()
     {
         return [
@@ -47,7 +47,7 @@ class ContactmeController extends Controller
 
     /**
      * Displays a single Contactme model.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -79,7 +79,7 @@ class ContactmeController extends Controller
     /**
      * Updates an existing Contactme model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -99,7 +99,7 @@ class ContactmeController extends Controller
     /**
      * Deletes an existing Contactme model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -113,7 +113,7 @@ class ContactmeController extends Controller
     /**
      * Finds the Contactme model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
+     * @param integer $id
      * @return Contactme the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

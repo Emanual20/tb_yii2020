@@ -329,4 +329,11 @@ class SiteController extends Controller
         ];
         return $this->render('Selfwork5', ['singlework' => $singlework]);
     }
+
+    /**
+     * display map
+     */
+    public function actionMap(){
+        return $this->render('map');
+    }
 }

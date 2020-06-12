@@ -17,7 +17,8 @@ class ContactmeSearch extends Contactme
     public function rules()
     {
         return [
-            [['id', 'name', 'request_time', 'content'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'request_time', 'content'], 'safe'],
         ];
     }
 
@@ -56,8 +57,11 @@ class ContactmeSearch extends Contactme
         }
 
         // grid filtering conditions
-        $query->andFilterWhere(['like', 'id', $this->id])
-            ->andFilterWhere(['like', 'name', $this->name])
+        $query->andFilterWhere([
+            'id' => $this->id,
+        ]);
+
+        $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'request_time', $this->request_time])
             ->andFilterWhere(['like', 'content', $this->content]);
 
