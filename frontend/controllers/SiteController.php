@@ -39,7 +39,7 @@ class SiteController extends Controller
                 'only' => ['logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['signup', 'hsz'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -278,9 +278,7 @@ class SiteController extends Controller
      */
     public function actionSelfwork(){
         $singlework = [
-            ['name' => 'Web前端初探', 'namecontent' => ''],
-            ['name' => 'Web前端设计', 'namecontent' => ''],
-            ['name' => '开源建站工具初试文档', 'namecontent' => ''],
+            ['name' => '作业压缩包链接', 'namecontent' => 'https://pan.baidu.com/s/1y4e3OyIbPOqMjf13IFKjlA'],
         ];
         return $this->render('Selfwork', ['singlework' => $singlework]);
     }
@@ -290,9 +288,7 @@ class SiteController extends Controller
      */
     public function actionSelfwork2(){
         $singlework = [
-            ['name' => 'Web前端初探', 'namecontent' => ''],
-            ['name' => 'Web前端设计', 'namecontent' => ''],
-            ['name' => '开源建站工具初试文档', 'namecontent' => ''],
+            ['name' => '作业压缩包链接', 'namecontent' => 'https://pan.baidu.com/s/1YzDEqgFUzMgWef76TdKLgQ'],
         ];
         return $this->render('Selfwork2', ['singlework' => $singlework]);
     }
@@ -301,9 +297,7 @@ class SiteController extends Controller
      */
     public function actionSelfwork3(){
         $singlework = [
-            ['name' => 'Web前端初探', 'namecontent' => ''],
-            ['name' => 'Web前端设计', 'namecontent' => ''],
-            ['name' => '开源建站工具初试文档', 'namecontent' => ''],
+            ['name' => '作业压缩包链接', 'namecontent' => 'https://pan.baidu.com/s/15dwGwE7_ADMKwLbVeXV1tA'],
         ];
         return $this->render('Selfwork3', ['singlework' => $singlework]);
     }
@@ -312,9 +306,7 @@ class SiteController extends Controller
      */
     public function actionSelfwork4(){
         $singlework = [
-            ['name' => 'Web前端初探', 'namecontent' => ''],
-            ['name' => 'Web前端设计', 'namecontent' => ''],
-            ['name' => '开源建站工具初试文档', 'namecontent' => ''],
+            ['name' => '作业压缩包链接', 'namecontent' => 'https://pan.baidu.com/s/1X4sHfoaDjpLTXyqHZIAzRw'],
         ];
         return $this->render('Selfwork4', ['singlework' => $singlework]);
     }
@@ -323,9 +315,7 @@ class SiteController extends Controller
      */
     public function actionSelfwork5(){
         $singlework = [
-            ['name' => 'Web前端初探', 'namecontent' => ''],
-            ['name' => 'Web前端设计', 'namecontent' => ''],
-            ['name' => '开源建站工具初试文档', 'namecontent' => ''],
+            ['name' => '作业压缩包链接', 'namecontent' => 'https://pan.baidu.com/s/1NqjDq-Y3EmcbbnH9YkTIoQ'],
         ];
         return $this->render('Selfwork5', ['singlework' => $singlework]);
     }
@@ -335,5 +325,9 @@ class SiteController extends Controller
      */
     public function actionMap(){
         return $this->render('map');
+    }
+
+    public function actionHsz(){
+        return $this->render('hsznews');
     }
 }

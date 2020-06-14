@@ -1,5 +1,8 @@
 <?php
-
+/**
+*  Team: TB2020, NKU
+*  Coding by Jiang-tian Zhai 1812326, 20200611
+*/
 namespace frontend\models;
 
 use Yii;
