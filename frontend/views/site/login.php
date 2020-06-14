@@ -1,5 +1,8 @@
 <?php
-
+/**
+*  Team: TB2020, NKU
+*  Coding by Han-zhang Lu 1811398, 0200614
+*/
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */

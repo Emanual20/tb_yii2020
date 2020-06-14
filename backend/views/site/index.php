@@ -1,53 +1,186 @@
 <?php
+/**
+*  Team: TB2020, NKU
+*  Coding by Yi-ding Sun 1811425, 20200611
+*/
+use yii\db\Query;
+use yii\helpers\Html;
+use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
+/* @var $searchModel backend\models\TbBulletinboardSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'My Yii Application';
+$this->title = '公告板';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
+<!-- TimeLine -->
+<h1 class="page-title"><center><b>公告板</b></center></h1>
+<div class="row">
+	<div class="col-md-12">
+							
+		<ul class="timeline">
+			<li>
+				<div class="timeline-badge"><i class="flaticon-message"></i></div>
+				<div class="timeline-panel">
+					<div class="timeline-heading">
+						<h4 class="timeline-title">
+						Latest announcement
+						</h4>
+						<p><small class="text-muted"><i class="flaticon-message"></i> 
+						
+						<?php
+						echo "posted  ";
+						$posts = Yii::$app->db->createCommand(
+						'SELECT timediff(SYSDATE(),tb_bPosttime) AS DIFF,tb_bUserid FROM tb_bulletinboard ORDER BY DIFF ASC limit 0,1'
+						)->queryAll();
+						if($posts[0]["DIFF"]<"838:59:59") echo $posts[0]["DIFF"];
+						else echo "long long";
+						echo "   ago by ";
+						echo $posts[0]["tb_bUserid"];
+						?>
+						
+						</small></p>
+					</div>
+					<div class="timeline-body">
+						<?php 
+						$posts = Yii::$app->db->createCommand(
+						'SELECT tb_bContent FROM tb_bulletinboard ORDER BY tb_bPosttime DESC limit 0,1'
+						)->queryAll();
+						echo $posts[0]["tb_bContent"];
+						?>
+	
+					</div>
+				</div>
+			</li>
+			<li class="timeline-inverted">
+				<div class="timeline-badge warning"><i class="flaticon-alarm-1"></i></div>
+				<div class="timeline-panel">
+					<div class="timeline-heading">
+						<h3 class="timeline-title">
+						Latest announcement
+						</h3>
+					</div>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+					<p><small class="text-muted"><i class="flaticon-message"></i> 
+						
+						<?php
+						echo "posted  ";
+						$posts = Yii::$app->db->createCommand(
+						'SELECT timediff(SYSDATE(),tb_bPosttime) AS DIFF,tb_bUserid FROM tb_bulletinboard ORDER BY DIFF ASC limit 1,1'
+						)->queryAll();
+						if($posts[0]["DIFF"]<"838:59:59") echo $posts[0]["DIFF"];
+						else echo "long long";
+						echo "   ago by ";
+						echo $posts[0]["tb_bUserid"];
+						?>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
+					</small></p>
 
-    <div class="body-content">
+					<div class="timeline-body">
+						<?php 
+						$posts = Yii::$app->db->createCommand(
+						'SELECT tb_bContent FROM tb_bulletinboard ORDER BY tb_bPosttime DESC limit 1,1'
+						)->queryAll();
+						echo $posts[0]["tb_bContent"]; 
+						?>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="timeline-badge danger"><i class="flaticon-error"></i></div>
+				<div class="timeline-panel">
+					<div class="timeline-heading">
+						<h4 class="timeline-title">
+						Latest announcement
+						</h4>
+					</div>
+					<p><small class="text-muted"><i class="flaticon-message"></i> 
+						<?php
+						echo "posted  ";
+						$posts = Yii::$app->db->createCommand(
+						'SELECT timediff(SYSDATE(),tb_bPosttime) AS DIFF,tb_bUserid FROM tb_bulletinboard ORDER BY DIFF ASC limit 2,1'
+						)->queryAll();
+						if($posts[0]["DIFF"]<"838:59:59") echo $posts[0]["DIFF"];
+						else echo "long long";
+						echo "   ago by ";
+						echo $posts[0]["tb_bUserid"];
+						?>
+					</small></p>
+					<div class="timeline-body">
+						<?php 
+						$posts = Yii::$app->db->createCommand(
+						'SELECT tb_bContent FROM tb_bulletinboard ORDER BY tb_bPosttime DESC limit 2,1'
+						)->queryAll();
+						echo $posts[0]["tb_bContent"]; 
+						?>
+					</div>
+				</div>
+			</li>
+			<li class="timeline-inverted">
+				<div class="timeline-panel">
+					<div class="timeline-heading">
+						<h4 class="timeline-title">
+						Latest announcement
+						</h4>
+					</div>
+					<p><small class="text-muted"><i class="flaticon-message"></i> 
+						<?php
+						echo "posted  ";
+						$posts = Yii::$app->db->createCommand(
+						'SELECT timediff(SYSDATE(),tb_bPosttime) AS DIFF,tb_bUserid FROM tb_bulletinboard ORDER BY DIFF ASC limit 3,1'
+						)->queryAll();
+						if($posts[0]["DIFF"]<"838:59:59") echo $posts[0]["DIFF"];
+						else echo "long long";
+						echo "   ago by ";
+						echo $posts[0]["tb_bUserid"];
+						?>
+					</small></p>
+					<div class="timeline-body">
+						<?php 
+						$posts = Yii::$app->db->createCommand(
+						'SELECT tb_bContent FROM tb_bulletinboard ORDER BY tb_bPosttime DESC limit 3,1'
+						)->queryAll();
+						echo $posts[0]["tb_bContent"]; 
+						?>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="timeline-badge info"><i class="flaticon-price-tag"></i></div>
+				<div class="timeline-panel">
+					<div class="timeline-heading">
+						<h4 class="timeline-title">
+						Latest announcement
+						</h4>
+					</div>
+					<p><small class="text-muted"><i class="flaticon-message"></i> 
+						<?php
+						echo "posted  ";
+						$posts = Yii::$app->db->createCommand(
+						'SELECT timediff(SYSDATE(),tb_bPosttime) AS DIFF,tb_bUserid FROM tb_bulletinboard ORDER BY DIFF ASC limit 4,1'
+						)->queryAll();
+						if($posts[0]["DIFF"]<"838:59:59") echo $posts[0]["DIFF"];
+						else echo "long long";
+						echo "   ago by ";
+						echo $posts[0]["tb_bUserid"];
+						?>
+					</small></p>
+					<div class="timeline-body">
+						<?php 
+						$posts = Yii::$app->db->createCommand(
+						'SELECT tb_bContent FROM tb_bulletinboard ORDER BY tb_bPosttime DESC limit 4,1'
+						)->queryAll();
+						echo $posts[0]["tb_bContent"]; 
+						?>
+					</div>
+				</div>
+			</li>
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
-    </div>
+			
+		</ul>
+	</div>
 </div>

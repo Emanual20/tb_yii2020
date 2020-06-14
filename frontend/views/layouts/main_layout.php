@@ -367,6 +367,10 @@ AppAsset::register($this);
                <a href="<?php echo Url::to(['site/map']) ?>">
                  <span class="glyphicon glyphicon-map-marker"></span> 累计确诊疫情分布图</a>
              </li>
+             <li>
+               <a href="<?php echo Url::to(['site/hsz']) ?>">
+                 <span class="glyphicon glyphicon-fire"></span> 红十字会信息</a>
+             </li>
          </li>
 
      

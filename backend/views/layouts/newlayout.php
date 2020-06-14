@@ -48,8 +48,7 @@ AppAsset::register($this);
 		<div class="main-header">
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="blue">
-				
-				<a href="index.html" class="logo">
+				<a href="index.php" class="logo">
 					<img src="../assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
