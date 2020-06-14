@@ -1,9 +1,12 @@
 <?php
     namespace common\tool;
-    use Yii;
+
+use backend\models\TbOrders as ModelsTbOrders;
+use Yii;
     use common\models\TbDemandGoods;
     use common\models\TbDemandGoodsSearch;
-use common\models\TbGoodsType;
+use backend\models\TbGoodsType;
+use backend\models\TbOrderStatus;
 use yii\web\Controller;
     use yii\web\NotFoundHttpException;
     use yii\helpers\ArrayHelper;
@@ -89,6 +92,16 @@ use yii\web\Controller;
             $total = count($dTypeArr);
             $dTypes = ArrayHelper::getColumn($dTypeArr,'tb_gtName', $keepKeys = false);
             $dTypeids = ArrayHelper::getColumn($dTypeArr,'tb_gtId', $keepKeys = false);
+            for ($i=0; $i < $total; $i++){
+                $type1 = $dTypes[$i];
+                echo("<option value = $dTypeids[$i]>$type1</option>");
+            } 
+        }
+        public static function echoAllOTypes(){
+            $dTypeArr = TbOrderStatus::find()->all();
+            $total = count($dTypeArr);
+            $dTypes = ArrayHelper::getColumn($dTypeArr,'tb_osRemark', $keepKeys = false);
+            $dTypeids = ArrayHelper::getColumn($dTypeArr,'tb_osId', $keepKeys = false);
             for ($i=0; $i < $total; $i++){
                 $type1 = $dTypes[$i];
                 echo("<option value = $dTypeids[$i]>$type1</option>");

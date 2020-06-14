@@ -114,19 +114,6 @@ $this->params['breadcrumbs'][] = $this->title;
 													</div>
 												</div>
 											</div>
-											<div class="form-group">
-												<label class="form-label">图像缩略图</label>
-												<div class="row">
-													<div class="col-9 col-sm-6">
-														<label class="imagecheck mb-6">
-															<input name="imagecheck" type="checkbox" value="1" class="imagecheck-input">
-															<figure class="imagecheck-figure">
-																<img src="../../assets/img/examples/product1.jpg" alt="title" class="imagecheck-image">
-															</figure>
-														</label>
-													</div>
-												</div>
-											</div>
 										</div>
 										<div class="col-md-9 col-lg-6">
                                             <label class="mb-3"><b>Form Group Default</b></label>
@@ -142,25 +129,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
 												</textarea>
 											</div>
-											
-											<div class="form-group form-group-default">
-												<label>Input</label>
-												<input id="Name" type="text" class="form-control" placeholder="Fill Name">
-											</div>
-											<div class="form-group form-group-default">
-												<label>Select</label>
-												<select class="form-control" id="formGroupDefaultSelect">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
-												</select>
-											</div>
 
-											
-											
 
+																						
 											<div class="form-group">
 												<label for="smallInput">特殊需求（人工审核）</label>
 												<input type="text" class="form-control form-control-sm" id="smallInput" placeholder="Small Input">

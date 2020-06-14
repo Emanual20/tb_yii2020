@@ -53,7 +53,7 @@ class SiteController extends Controller
                     'show' => ['post','get'],
 					'newb' => ['post'],
 					'catch' => ['post','get'],
-					'move' => ['post'],
+					'move' => ['post','get'],
 					'weal' => ['post','get'],
                 ],
             ],

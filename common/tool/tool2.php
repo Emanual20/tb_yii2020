@@ -21,6 +21,13 @@
                 <td>$oSellID</td>
                 <td>$oBuyID</td>
                 <td>$ostatus</td>
+                <td>
+                    <div class="form-button-action">
+                        <button type="button" data-oid= $oID data-toggle="modal" data-target="#addRowModal" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             EOF;
             return $ret;

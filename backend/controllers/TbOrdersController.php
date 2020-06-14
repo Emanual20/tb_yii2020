@@ -25,7 +25,7 @@ class TbOrdersController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['add'],
+                        'actions' => ['add','delete','change'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -35,7 +35,8 @@ class TbOrdersController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
-					'add' => ['post'],
+                    'add' => ['POST'],
+                    'change' => ['POST'],
                 ],
             ],
         ];
@@ -119,6 +120,28 @@ class TbOrdersController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    /**
+     * change the status of an existing TbOrders model.
+     * If change is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionChange()
+    {
+        $request = \Yii::$app->request;
+        $id = $request->post("id",null);
+        $m = $this->findModel($id);
+        $m ->tb_ostatus = $a = (int)$request->post("status",null);
+        if($m->validate()){
+            echo "<script>alert('success change')</script>";
+            $m->save();
+        }else{
+            echo "<script>alert('failed change')</script>";
+        }
+        return $this->redirect(['site/catch']);
     }
 
     /**
