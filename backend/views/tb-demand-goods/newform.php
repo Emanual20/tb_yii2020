@@ -1,5 +1,8 @@
 <?php
-
+/**
+*  Team: TB2020, NKU
+*  Coding by Jia-lin Dong 1811349, 20200608
+*/
 use yii\db\Query;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -39,7 +42,8 @@ $this->params['breadcrumbs'][] = $this->title;
 						</ul>
                     </div>
                 
-                <form action = "/tb_yii2020/tb_yii2020/backend/web/index.php?r=tb-demand-goods%2Fadd" method="post" name="addform">
+				<form action = "/tb_yii2020/tb_yii2020/backend/web/index.php?r=tb-demand-goods%2Fadd"
+				 method="post" name="addform">
                     <input type="hidden" name="_csrf-backend" value="<?= Yii::$app->request->csrfToken ?>">
 					<div class="row">
                         <script language="javascript">
@@ -90,7 +94,8 @@ $this->params['breadcrumbs'][] = $this->title;
 													    <span class="input-icon-addon">
 														    <i class="fa fa-user"></i>
 													    </span>
-													    <input name = "UserID" type="text" class="form-control" disabled="disabled" placeholder="<?= Yii::$app->user->identity->username ?>">
+														<input name = "UserID" type="text" class="form-control" 
+														disabled="disabled" placeholder="<?= Yii::$app->user->identity->username ?>">
 												    </div>
 												</div>
 											</div>
@@ -140,7 +145,8 @@ $this->params['breadcrumbs'][] = $this->title;
 									</div>
 								</div>
 								<div class="card-action">
-                                    <input type="button" id="addRowButton" value="Submit" class="btn btn-success" onclick="javascript:fsubmit(document.addform);"></input>
+									<input type="button" id="addRowButton" value="Submit" class="btn btn-success" 
+									onclick="javascript:fsubmit(document.addform);"></input>
 									<button class="btn btn-danger">Cancel</button>
 								</div>
 							</div>

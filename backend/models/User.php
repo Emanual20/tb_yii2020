@@ -1,7 +1,10 @@
 <?php
 
 namespace backend\models;
-
+/**
+*  Team: TB2020, NKU
+*  Coding by Yi-ding Sun 1811425, 20200611
+*/
 use Yii;
 use common\models\TbDemandGoods;
 /**

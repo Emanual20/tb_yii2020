@@ -1,4 +1,8 @@
 <?php
+/**
+*  Team: TB2020, NKU
+*  Coding by Yi-ding Sun 1811425, 20200611
+*/
     namespace common\tool;
     use Yii;
     use common\models\TbWealGoods;

@@ -78,12 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
 																	<input id="oid" type="text" name = "id" class="form-control" placeholder="">
 																</div>
 															</div>
-															<!-- <div class="col-md-6 pr-0">
-																<div class="form-group form-group-default">
-																	<label>status</label>
-																	<input id="changetype" type="text" name = "status" class="form-control" placeholder="填写需求类型">
-																</div>
-															</div> -->
+
 															<div class="col-md-6 pr-0">
 																<div class="form-group">
 																	<label for="exampleFormControlSelect1">修正状态</label>

@@ -1,9 +1,9 @@
 <?php
 
 /**
-* Coding by Sakura, 20200609
-**/
-
+*  Team: TB2020, NKU
+*  Coding by Yi-ding Sun 1811425, 20200611
+*/
 namespace backend\models;
 
 /**

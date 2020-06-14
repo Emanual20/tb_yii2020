@@ -1,5 +1,8 @@
 <?php
-
+/**
+*  Team: TB2020, NKU
+*  Coding by Jia-lin Dong 1811349, 20200608
+*/
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
