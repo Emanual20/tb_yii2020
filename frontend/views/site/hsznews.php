@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?php
-    $json_string = file_get_contents('C:\xampp\htdocs\tb_yii2020\tb_yii2020\json\news.json');
+    $json_string = file_get_contents('..\..\json\news.json');
     $data = json_decode($json_string, true); 
     //var_dump($data);
 ?>

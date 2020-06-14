@@ -23,12 +23,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <br/>
     <div class="row">
         <div class="col-lg-5">
-            <h4><a href="#">需求文档</a></h4>
-            <h4><a href="#">设计文档</a></h4>
+            <h4><a href=" https://pan.baidu.com/s/12w5eV038FTn5Wb9Cg52mDg">部署文档</a>  提取码:h9gs</h4>
+            <h4><a href=" https://pan.baidu.com/s/1FpeXf9IUSnSU5W6bqlc58g">设计文档</a>  提取码:kxu7 </h4>
             <h4><a href="#">实现文档</a></h4>
-            <h4><a href="#">用户手册</a></h4>
-            <h4><a href="#">部署文档</a></h4>
-            <h4><a href="#">项目展示PPT</a></h4>
+            <h4><a href="https://pan.baidu.com/s/1b_mDZxNABrY-uVMVeo032A">用户手册</a>  提取码: 9356</h4>
+            <h4><a href="#">需求文档</a></h4>
+            <h4><a href="https://pan.baidu.com/s/1AMhHTjnJSlcaFsNo4yFPiQ">项目展示PPT</a>  提取码: wu15 </h4>
             <h4><a href="#">录屏讲解</a></h4>
         </div>
     </div>
